@@ -12,4 +12,26 @@ class Transaksi extends Controller
         $this->view('Transaksi/index', $data);
         $this->view('Templates/footer');
     }
+
+    public function insert()
+    {
+        $data['judul'] = "Tambah Transaksi";
+
+        $this->view('Templates/header', $data);
+        $this->view('Transaksi/tambah');
+        $this->view('Templates/footer');
+    }
+
+    public function store()
+    {
+        if ($this->model('Transaksi_model')->tambahDataTransaksi($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'ditambahkan', 'success');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        }
+    }
 }

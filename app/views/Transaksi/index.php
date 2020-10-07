@@ -3,7 +3,7 @@
 
     <?php Flasher::flash(); ?>
 
-    <a href="<?= BASEURL ?>barang/insert/" class="paper-btn btn-secondary btn-small"> Tambah Transaksi </a>
+    <a href="<?= BASEURL ?>transaksi/insert/" class="paper-btn btn-secondary btn-small"> Tambah Transaksi </a>
 
     <table class="table-hover">
         <thead>
