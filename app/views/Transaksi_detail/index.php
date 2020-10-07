@@ -20,7 +20,7 @@
             <?php
             $no = 1;
 
-            foreach ($data["trd"] as $row) {           ?>
+            foreach ($data["transaksi"] as $row) {           ?>
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $row["no_transaksi"]; ?></td>
