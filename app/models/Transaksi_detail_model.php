@@ -36,7 +36,7 @@ class Transaksi_detail_model
 
     public function getTransaksiById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE no_transaksi=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
@@ -44,15 +44,18 @@ class Transaksi_detail_model
     public function ubahDataTransaksi($data)
     {
         $query = "UPDATE " . $this->table . " SET
-                    no_transaksi = :id,
-                    waktu_transaksi = :waktu,
-                    total_transaksi = :total
-                    WHERE no_transaksi = :id";
+                    no_transaksi = :no,
+                    kode_barang = :kode,
+                    qty = :qty,
+                    sub_total = :sub
+                    WHERE id = :id";
 
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
-        $this->db->bind('total', $data['total']);
-        $this->db->bind('waktu', date('Y-m-d H:i:s'));
+        $this->db->bind('no', $data['no']);
+        $this->db->bind('kode', $data['kode']);
+        $this->db->bind('qty', $data['qty']);
+        $this->db->bind('sub', $data['sub']);
 
         $this->db->execute();
 
@@ -61,7 +64,7 @@ class Transaksi_detail_model
 
     public function hapusDataTransaksi($id)
     {
-        $query = "DELETE FROM " . $this->table . " WHERE no_transaksi= :id";
+        $query = "DELETE FROM " . $this->table . " WHERE id= :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 
