@@ -35,6 +35,29 @@ class Barang extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data['judul'] = "Edit Barang";
+        $data['barang'] = $this->model('Barang_model')->getBarangById($id);
+
+        $this->view('Templates/header', $data);
+        $this->view('Barang/edit', $data);
+        $this->view('Templates/footer');
+    }
+
+    public function update()
+    {
+        if ($this->model('Barang_model')->ubahDataBarang($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'diubah', 'success');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        }
+    }
+
     public function destroy($id)
     {
         if ($this->model('Barang_model')->hapusDataBarang($id) > 0) {

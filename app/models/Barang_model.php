@@ -35,6 +35,34 @@ class Barang_model
         return $this->db->rowCount();
     }
 
+    public function getBarangById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+
+    public function ubahDataBarang($data)
+    {
+        $query = "UPDATE barang SET
+                    kode_barang = :kode_barang,
+                    nama_barang = :nama_barang,
+                    satuan = :satuan,
+                    harga = :harga 
+                    WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('kode_barang', $data['kode']);
+        $this->db->bind('nama_barang', $data['nama']);
+        $this->db->bind('satuan', $data['satuan']);
+        $this->db->bind('harga', $data['harga']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function hapusDataBarang($id)
     {
         $query = "DELETE FROM barang WHERE id= :id";
