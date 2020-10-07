@@ -35,6 +35,29 @@ class Transaksi extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data['judul'] = "Edit Transaksi";
+        $data['transaksi'] = $this->model('Transaksi_model')->getTransaksiById($id);
+
+        $this->view('Templates/header', $data);
+        $this->view('Transaksi/edit', $data);
+        $this->view('Templates/footer');
+    }
+
+    public function update()
+    {
+        if ($this->model('Transaksi_model')->ubahDataTransaksi($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'diubah', 'success');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        }
+    }
+
     public function destroy($id)
     {
         if ($this->model('Transaksi_model')->hapusDataTransaksi($id) > 0) {
