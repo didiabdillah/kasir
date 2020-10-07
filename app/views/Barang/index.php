@@ -1,3 +1,3 @@
 <div class="container">
-    <h3>Daftar Transaksi</h3>
+    <h3>Daftar Barang</h3>
 </div>
