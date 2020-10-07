@@ -21,9 +21,9 @@
             foreach ($data["transaksi"] as $row) { ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><a href="<?= BASEURL . "transaksi/show/" . $row["no_transaksi"]; ?>"><?= $row["no_transaksi"]; ?></a></td>
-                    <td><a href="<?= BASEURL . "transaksi/show/" . $row["no_transaksi"]; ?>"><?= $row["waktu_transaksi"]; ?></a></td>
-                    <td><a href="<?= BASEURL . "transaksi/show/" . $row["no_transaksi"]; ?>"><?= $row["total_transaksi"]; ?></a></td>
+                    <td><?= $row["no_transaksi"]; ?></td>
+                    <td><?= $row["waktu_transaksi"]; ?></td>
+                    <td><?= $row["total_transaksi"]; ?></td>
 
                     <td>
                         <a href="<?= BASEURL . "transaksi/edit/" . $row["no_transaksi"]; ?>" class="paper-btn btn-small btn-warning">Edit</a>

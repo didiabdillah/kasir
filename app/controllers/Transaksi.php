@@ -12,14 +12,4 @@ class Transaksi extends Controller
         $this->view('Transaksi/index', $data);
         $this->view('Templates/footer');
     }
-
-    public function show($id)
-    {
-        $data['judul'] = 'Detail Transaksi';
-        $data['transaksi'] = $this->model('Transaksi_model')->getTransaksiDetilById($id);
-
-        $this->view('Templates/header', $data);
-        $this->view('Transaksi/show', $data);
-        $this->view('Templates/footer');
-    }
 }

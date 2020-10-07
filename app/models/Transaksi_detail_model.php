@@ -1,8 +1,8 @@
 <?php
 
-class Transaksi_model
+class Transaksi_detail_model
 {
-    protected $table = "transaksi";
+    protected $table = "transaksi_detil";
 
     private $db;
 

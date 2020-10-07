@@ -3,7 +3,7 @@
 
     <?php Flasher::flash(); ?>
 
-    <a href="<?= BASEURL ?>barang/insert/" class="paper-btn btn-secondary btn-small"> Tambah Transaksi </a>
+    <a href="<?= BASEURL ?>transaksi_detail/insert/" class="paper-btn btn-secondary btn-small"> Tambah Detail Transaksi </a>
 
     <table class="table-hover">
         <thead>
@@ -20,7 +20,7 @@
             <?php
             $no = 1;
 
-            foreach ($data["transaksi"] as $row) {           ?>
+            foreach ($data["trd"] as $row) {           ?>
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $row["no_transaksi"]; ?></td>
@@ -29,8 +29,8 @@
                     <td><?= $row["sub_total"]; ?></td>
 
                     <td>
-                        <a href="<?= BASEURL . "transaksi/edit/" . $row["id"]; ?>" class="paper-btn btn-small btn-warning">Edit</a>
-                        <a href="<?= BASEURL . "transaksi/destroy/" . $row["id"]; ?>" onclick="return confirm('Yakin?');" class="paper-btn btn-small btn-danger">Hapus</a>
+                        <a href="<?= BASEURL . "transaksi_detail/edit/" . $row["id"]; ?>" class="paper-btn btn-small btn-warning">Edit</a>
+                        <a href="<?= BASEURL . "transaksi_detail/destroy/" . $row["id"]; ?>" onclick="return confirm('Yakin?');" class="paper-btn btn-small btn-danger">Hapus</a>
                     </td>
                 </tr>
             <?php } ?>
