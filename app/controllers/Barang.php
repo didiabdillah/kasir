@@ -34,4 +34,17 @@ class Barang extends Controller
             exit;
         }
     }
+
+    public function destroy($id)
+    {
+        if ($this->model('Barang_model')->hapusDataBarang($id) > 0) {
+            Flasher::setFlash('Berhasil', 'dihapus', 'success');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        }
+    }
 }
