@@ -33,4 +33,15 @@ class Transaksi_model
 
         return $this->db->rowCount();
     }
+
+    public function hapusDataTransaksi($id)
+    {
+        $query = "DELETE FROM transaksi WHERE no_transaksi= :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

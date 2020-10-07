@@ -34,4 +34,17 @@ class Transaksi extends Controller
             exit;
         }
     }
+
+    public function destroy($id)
+    {
+        if ($this->model('Transaksi_model')->hapusDataTransaksi($id) > 0) {
+            Flasher::setFlash('Berhasil', 'dihapus', 'success');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('location: ' . BASEURL . 'transaksi');
+            exit;
+        }
+    }
 }
