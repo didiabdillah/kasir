@@ -1,6 +1,9 @@
 <div class="container">
     <h3>Daftar Barang</h3>
-    <br>
+
+    <?php Flasher::flash(); ?>
+
+    <a href="<?= BASEURL ?>barang/insert/" class="paper-btn btn-secondary btn-small"> Tambah Barang </a>
 
     <table class="table-hover">
         <thead>

@@ -12,4 +12,26 @@ class Barang extends Controller
         $this->view('Barang/index', $data);
         $this->view('Templates/footer');
     }
+
+    public function insert()
+    {
+        $data['judul'] = "Tambah Barang";
+
+        $this->view('Templates/header', $data);
+        $this->view('Barang/tambah');
+        $this->view('Templates/footer');
+    }
+
+    public function store()
+    {
+        if ($this->model('Barang_model')->tambahDataBarang($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'ditambahkan', 'success');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('location: ' . BASEURL . 'barang');
+            exit;
+        }
+    }
 }

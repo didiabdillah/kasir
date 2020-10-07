@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <nav class="border split-nav">
         <div class="nav-brand">
             <h3><a href="#">Kasir</a></h4>
