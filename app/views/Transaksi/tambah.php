@@ -19,7 +19,7 @@
 
             <div class="col sm-6">
                 <div class="form-group">
-                    <a href="<?= BASEURL ?>barang" class="text-center paper-btn btn-block btn-danger">Batal</a>
+                    <a href="<?= BASEURL ?>transaksi" class="text-center paper-btn btn-block btn-danger">Batal</a>
                 </div>
             </div>
             <div class="col sm-6">

@@ -20,14 +20,14 @@ class Transaksi_detail_model
 
     public function tambahDataTransaksi($data)
     {
-        $query = "INSERT INTO transaksi
-                    VALUES
-                  (:no, :waktu, :total)";
+        $query = "INSERT INTO " . $this->table . " VALUES
+                  ('', :no, :kode, :qty, :sub)";
 
         $this->db->query($query);
-        $this->db->bind('waktu', date('Y-m-d H:i:s'));
         $this->db->bind('no', $data['no']);
-        $this->db->bind('total', $data['total']);
+        $this->db->bind('kode', $data['kode']);
+        $this->db->bind('qty', $data['qty']);
+        $this->db->bind('sub', $data['sub']);
 
         $this->db->execute();
 
