@@ -5,8 +5,8 @@ class Cetak extends Controller
 
     public function index()
     {
-        $data['judul'] = "Barang";
-        $data['barang'] = $this->model('Barang_model')->getAllBarang();
+        $data['judul'] = "Cetak Transaksi";
+        // $data['barang'] = $this->model('Barang_model')->getAllBarang();
 
         $this->view('Templates/header', $data);
         $this->view('Cetak/index', $data);

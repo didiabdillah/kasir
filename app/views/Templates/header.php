@@ -23,6 +23,7 @@
             </label>
             <div class="collapsible-body">
                 <ul class="inline">
+                    <li><a href="<?= BASEURL ?>cetak">Cetak</a></li>
                     <li><a href="<?= BASEURL ?>transaksi">Transaksi</a></li>
                     <li><a href="<?= BASEURL ?>transaksi_detail">Transaksi Detail</a></li>
                     <li><a href="<?= BASEURL ?>barang">Barang</a></li>
